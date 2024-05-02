@@ -29,18 +29,16 @@ function partition(array, first, last) {
     let pivot = calculatePivot(array, first, last);
     //console.log("Selected pivot value:", pivot);
     
-    
     let i = first - 1; 
     for (let j = first; j < last; j++) {
         if (array[j] <= pivot) {
-            i++; 
+            i++;
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
-
     [array[i + 1], array[last]] = [array[last], array[i + 1]];
     
-    return i + 1;
+    return i + 1; 
 }
 
 function calculatePivot(array, first, last) {
