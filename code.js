@@ -28,11 +28,10 @@ function partition(array, first, last) {
     for (let j = first; j < last; j++) {
         if (array[j] <= pivot) {
             i++;
-            //the logic on the next line is what the tool helped with
-            [array[i], array[j]] = [array[j], array[i]];
+            [array[i], array[j]] = [array[j], array[i]]; // Swap array[i] and array[j]
         }
     }
-    [array[i + 1], array[last]] = [array[last], array[i + 1]];
+    [array[i + 1], array[last]] = [array[last], array[i + 1]]; // Move pivot to its final place
     return i + 1; 
 }
 
