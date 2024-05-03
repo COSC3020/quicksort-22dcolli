@@ -57,7 +57,7 @@ module.exports = quicksort;
 function calculatePivot(array, first, last) {
     return array[Math.floor((first + last) / 2)]; // Select middle element as pivot
 }
-*/
+
 
 
 //let array = [2,-4,6,8,-33,30,31,29,4879];
