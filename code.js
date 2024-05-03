@@ -1,5 +1,3 @@
-//I had to use replit AI tool to get my partition to work because I really wanted to use an average as my pivot point because I heard from a guest lecturer that it makes for a better pivot choice if only slightly.
-// It is marked below
 function quicksort(array) {
     let arr = [];
     let first = 0;
@@ -8,19 +6,14 @@ function quicksort(array) {
     arr.push(last);
     while (arr.length > 0) {
         last = arr.pop();
-        first= arr.pop();
-        //console.log("Partitioning array from index", first, "to", last);
-        let part = partition(array, first, last);
-        //console.log("After partitioning, array:", array);
-        //console.log("Pivot value:", array[part]);
-        if (part - 1 > first) {
-            //console.log("Pushing left partition indices:", first, part - 1);
+        first = arr.pop();
+        let pivot_location = partition(array, first, last);
+        if (pivot_location - 1 > first) {
             arr.push(first);
-            arr.push(part - 1);
+            arr.push(pivot_location - 1);
         }
-        if (part + 1 < last) {
-            //console.log("Pushing right partition indices:", part + 1, last);
-            arr.push(part + 1);
+        if (pivot_location + 1 < last) {
+            arr.push(pivot_location + 1);
             arr.push(last);
         }
     }
@@ -28,11 +21,8 @@ function quicksort(array) {
 }
 
 function partition(array, first, last) {
-    let pivot = calculatePivot(array, first, last);
-    //console.log("Selected pivot value:", pivot);
-
-    //The logic below to the next comment is what the AI tool helped to change
-    let i = first - 1; 
+    let pivot = array[last]; 
+    let i = first - 1;
     for (let j = first; j < last; j++) {
         if (array[j] <= pivot) {
             i++;
@@ -40,12 +30,14 @@ function partition(array, first, last) {
         }
     }
     [array[i + 1], array[last]] = [array[last], array[i + 1]];
-    
     return i + 1; 
-    //Ends Here
 }
 
-function calculatePivot(array, first, last) {
+
+/*function calculatePivot(array, first, last) {
+    if (first === last) {
+        return array[first];
+    }
     let sum = 0;
     let count = 0;
     for (let i = first; i <= last; i++) {
@@ -55,8 +47,14 @@ function calculatePivot(array, first, last) {
     return sum / count; 
 }
 
+function calculatePivot(array, first, last) {
+    return array[Math.floor((first + last) / 2)]; // Select middle element as pivot
+}
+*/
+
 
 //let array = [2,-4,6,8,-33,30,31,29,4879];
 //let array = [2,4,6,8,33,30,31,29];
+//let array = [33,31,30,29,];
 //quicksort(array);
 //console.log("Sorted array is:", array);
