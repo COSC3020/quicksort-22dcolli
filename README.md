@@ -14,3 +14,7 @@ recursive call considers.
 Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
+
+Side Note: I can't figure out why the test is failing but any array I try seems to sort correctly
+
+Anyways, we learned that the worst case for quicksort is when the items are in reversed order, and that for the standard quicksort the time complexity is $\Theta(nlog(n))$
