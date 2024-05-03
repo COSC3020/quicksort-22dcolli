@@ -1,3 +1,5 @@
+//I used replit AI tool for the comment out portion where I was trying to get the pivot point to be a calculated average because I heard a lecturer say once it was a good way to choose a pivot.
+//Other than that I've marked the one location the tool had me change
 function quicksort(array) {
     let arr = [];
     let first = 0;
@@ -26,6 +28,7 @@ function partition(array, first, last) {
     for (let j = first; j < last; j++) {
         if (array[j] <= pivot) {
             i++;
+            //the logic on the next line is what the tool helped with
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
