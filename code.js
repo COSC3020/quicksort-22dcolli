@@ -1,3 +1,5 @@
+//I had to use replit AI tool to get my partition to work because I really wanted to use an average as my pivot point because I heard from a guest lecturer that it makes for a better pivot choice if only slightly.
+// It is marked below
 function quicksort(array) {
     let arr = [];
     let first = 0;
@@ -28,7 +30,8 @@ function quicksort(array) {
 function partition(array, first, last) {
     let pivot = calculatePivot(array, first, last);
     //console.log("Selected pivot value:", pivot);
-    
+
+    //The logic below to the next comment is what the AI tool helped to change
     let i = first - 1; 
     for (let j = first; j < last; j++) {
         if (array[j] <= pivot) {
@@ -39,6 +42,7 @@ function partition(array, first, last) {
     [array[i + 1], array[last]] = [array[last], array[i + 1]];
     
     return i + 1; 
+    //Ends Here
 }
 
 function calculatePivot(array, first, last) {
