@@ -23,7 +23,7 @@ function quicksort(array) {
     }
     return array;
 }
-
+//The following code is corrected swap code which was causing my tests to fail
 function swap(array, left_position, right_position) {
     let temp = array[left_position];
     array[left_position] = array[right_position];
@@ -51,11 +51,10 @@ function partition(array, left, right) {
     return i;
 }
 
-module.exports = quicksort;
 
 
 function calculatePivot(array, first, last) {
-    return array[Math.floor((first + last) / 2)]; // Select middle element as pivot
+    return array[Math.floor((first + last) / 2)]; 
 }
 
 
