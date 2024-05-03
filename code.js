@@ -32,23 +32,23 @@ function swap(array, left_position, right_position) {
 
 function partition(array, left, right) {
     let pivot = array[Math.floor((right + left) / 2)];
-    let i = left;
-    let j = right;
+    let L = left;
+    let R = right;
 
-    while (i <= j) {
-        while (array[i] < pivot) {
-            i++;
+    while (L <= R) {
+        while (array[L] < pivot) {
+            L++;
         }
-        while (array[j] > pivot) {
-            j--;
+        while (array[R] > pivot) {
+            R--;
         }
-        if (i <= j) {
-            swap(array, i, j);
-            i++;
-            j--;
+        if (L <= R) {
+            swap(array, L, R);
+            L++;
+            R--;
         }
     }
-    return i;
+    return L;
 }
 
 
