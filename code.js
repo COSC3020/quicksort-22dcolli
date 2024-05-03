@@ -2,52 +2,57 @@
 //Other than that I've marked the one location the tool had me change
 function quicksort(array) {
     let arr = [];
-    let first = 0;
-    let last = array.length - 1;
-    arr.push(first);
-    arr.push(last);
+    arr.push(0);
+    arr.push(array.length - 1);
+
     while (arr.length > 0) {
-        last = arr.pop();
-        first = arr.pop();
-        let pivot_location = partition(array, first, last);
-        if (pivot_location - 1 > first) {
-            arr.push(first);
-            arr.push(pivot_location - 1);
+        let right = arr.pop();
+        let left = arr.pop();
+
+        let index = partition(array, left, right);
+
+        if (left < index - 1) {
+            arr.push(left);
+            arr.push(index - 1);
         }
-        if (pivot_location + 1 < last) {
-            arr.push(pivot_location + 1);
-            arr.push(last);
+
+        if (index < right) {
+            arr.push(index);
+            arr.push(right);
         }
     }
     return array;
 }
 
-function partition(array, first, last) {
-    let pivot = array[last]; 
-    let i = first - 1;
-    for (let j = first; j < last; j++) {
-        if (array[j] <= pivot) {
+function swap(array, left_position, right_position) {
+    let temp = array[left_position];
+    array[left_position] = array[right_position];
+    array[right_position] = temp;
+}
+
+function partition(array, left, right) {
+    let pivot = array[Math.floor((right + left) / 2)];
+    let i = left;
+    let j = right;
+
+    while (i <= j) {
+        while (array[i] < pivot) {
             i++;
-            [array[i], array[j]] = [array[j], array[i]]; // Swap array[i] and array[j]
+        }
+        while (array[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(array, i, j);
+            i++;
+            j--;
         }
     }
-    [array[i + 1], array[last]] = [array[last], array[i + 1]]; // Move pivot to its final place
-    return i + 1; 
+    return i;
 }
 
+module.exports = quicksort;
 
-/*function calculatePivot(array, first, last) {
-    if (first === last) {
-        return array[first];
-    }
-    let sum = 0;
-    let count = 0;
-    for (let i = first; i <= last; i++) {
-        sum += array[i];
-        count++;
-    }
-    return sum / count; 
-}
 
 function calculatePivot(array, first, last) {
     return array[Math.floor((first + last) / 2)]; // Select middle element as pivot
