@@ -17,6 +17,6 @@ markdown file.
 
 Side Note: I can't figure out why the test is failing but any array I try seems to sort correctly
 
-Anyways, we learned that the worst case for quicksort is when the items are in reversed order. For the standard quicksort the time complexity is $\Theta(log(n^{2}))$, and in the worst case we would have to go through every single element doing the most amount of work. So I think that that would mean the runtime would remain $\Theta(log(n^{2}))$
+Anyways, we learned that the worst case for quicksort is when the items are in reversed order. For the standard quicksort the time complexity is $\Theta(n^{2})$, and in the worst case we would have to go through every single element doing the most amount of work. So I think that that would mean the runtime would remain $\Theta(n^{2})$
 
 
