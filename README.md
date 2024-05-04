@@ -17,6 +17,6 @@ markdown file.
 
 Side Note: I can't figure out why the test is failing but any array I try seems to sort correctly
 
-Anyways, we learned that the worst case for quicksort is when the items are in reversed order. For the standard quicksort the time complexity is $\Theta(n^{2})$, and in the worst case we would have to go through every single element doing the most amount of work. So I think that that would mean the runtime would remain $\Theta(n^{2})$
+I now think that the worst case scenario based on my code would revolve around the pivot method. Thinking about it, I realized that if the pivot chosen resulted in the algorithm only swapping one of the elements for every iteration, then there would be an iteration for every item in the array. So usually the standard quicksort has the time complexity of $\Theta(n^{2})$, but that is already the same as when you have to reiterate for every element in the list. So I believe the bound to $\Theta(n^{2})$.
 
 
