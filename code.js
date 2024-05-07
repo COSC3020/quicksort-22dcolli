@@ -1,5 +1,6 @@
 //I used replit AI tool for the comment out portion where I was trying to get the pivot point to be a calculated average because I heard a lecturer say once it was a good way to choose a pivot.
 //Other than that I've marked the one location the tool had me change
+//I also veiwed the repositories of Ishita Patel,Keifer Buss, Cian Melker, and Caden McFate to look for inspiration for some of the functions I wanted to make or operate a certain way
 function quicksort(array) {
     let arr = [];
     arr.push(0);
